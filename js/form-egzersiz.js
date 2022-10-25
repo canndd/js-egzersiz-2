@@ -1,10 +1,11 @@
 let userFormDOM= document.querySelector("#userForm");
 userFormDOM.addEventListener("submit",formHandler);
+const alertDOM= document.querySelector("#alert")
 
 
-const ALERT=`<div class="alert alert-warning alert-dismissible fade show" role="alert">
-<strong>Holy guacamole!</strong> You should check in on some of those fields below.
-<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+const ALERTfunction = (title , message, className="warning")=>`<div class="alert alert-${className} alert-dismissible fade show" role="alert">
+<strong>${title}</strong> ${message}
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button>
 </div>`
@@ -19,7 +20,9 @@ function formHandler(event){
          SCORE.value=""
 
     }else{
-        console.log(ALERT)
+       alertDOM.innerHTML=ALERTfunction("UYARI" , "Eksik bilgi girdiniz","danger"
+       )
+       
     }
 
     

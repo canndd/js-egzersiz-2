@@ -1,10 +1,18 @@
 let userFormDOM= document.querySelector("#userForm");
 userFormDOM.addEventListener("submit",formHandler);
 const alertDOM= document.querySelector("#alert")
-
+const alertDOMonay=document.querySelector("#alert-onay")
 
 const ALERTfunction = (title , message, className="warning")=>`<div class="alert alert-${className} alert-dismissible fade show" role="alert">
 <strong>${title}</strong> ${message}
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>`
+
+const ALERTfunctionONAY=(baslık,mesaj)=>
+`<div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>${baslık}</strong> ${mesaj}
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
   <span aria-hidden="true">&times;</span>
 </button>
@@ -18,6 +26,7 @@ function formHandler(event){
         addItem(USER_NAME.value , SCORE.value)
         USER_NAME.value =""
          SCORE.value=""
+         alertDOMonay.innerHTML=ALERTfunctionONAY("Başarılı", "Bilgileriniz eklenmiştir.")
 
     }else{
        alertDOM.innerHTML=ALERTfunction("UYARI" , "Eksik bilgi girdiniz","danger"

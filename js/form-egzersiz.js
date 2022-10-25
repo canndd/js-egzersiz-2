@@ -13,7 +13,16 @@ function formHandler(event){
     event.preventDefault()
     const USER_NAME=document.querySelector("#username");
     const SCORE=document.querySelector("#score");
-    addItem(USER_NAME.value , SCORE.value)
+    if (USER_NAME.value && SCORE.value){
+        addItem(USER_NAME.value , SCORE.value)
+        USER_NAME.value =""
+         SCORE.value=""
+
+    }else{
+        console.log(ALERT)
+    }
+
+    
 }
 let ListDOM=document.querySelector("#userList");
 const addItem = (username,score) =>{
